@@ -107,12 +107,8 @@ const onPlayerReady = (player, options) => {
     }
   };
 
-  if (videojs.browser.IS_IOS) {
-    window.addEventListener('orientationchange', rotationHandler);
-  } else if (screen.orientation) {
-    // addEventListener('orientationchange') is not a user interaction on Android
-    screen.orientation.onchange = rotationHandler;
-  }
+  
+  window.addEventListener('orientationchange', rotationHandler);
 
   player.on('ended', _ => {
     if (locked === true) {
